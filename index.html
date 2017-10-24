@@ -8,18 +8,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Giphy</title>
+  <title>Giphy Search</title>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
+    <div class="panel panel-default" id="form-div">
         <div id="gifs-view"></div>
-        <form id="gif-form" class="form-group">
-            <label for="gif-input">Add your mood : </label>
-            <input type="text" id="gif-input"  class="form-control" ><br>
-            <input id="add-gif" type="submit" value="Submit" class="btn btn-primary">
-        </form>
-        <div id="gif-result"></div>
+          <form id="gif-form" class="form-group">
+              <label for="gif-input">Add your mood : </label>
+              <input type="text" id="gif-input"  class="form-control" ><br>
+              <input id="add-gif" type="submit" value="Submit" class="btn btn-primary">
+          </form>
     </div>
+      <div id="gif-result"></div>
+</div>
     <!-- JQuery and Bootstrap JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
