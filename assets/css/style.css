@@ -1,0 +1,11 @@
+.img-box{
+  float: left;
+  padding:2px;
+  margin: 5px;
+}
+.gif{
+  margin: 5px;
+}
+#gif-input{
+  width: 300px;
+}

@@ -3,101 +3,28 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Giphy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Giphy</title>
 </head>
-
 <body>
     <div class="container">
-        <h1>Gifs Search</h1>
-
-
         <div id="gifs-view"></div>
-
-        <form id="gif-form">
-            <label for="gif-input">Add a Movie Please</label>
-            <input type="text" id="gif-input"><br>
-
-
-            <input id="add-gif" type="submit" value="Add a Movie Please">
+        <form id="gif-form" class="form-group">
+            <label for="gif-input">Add your mood : </label>
+            <input type="text" id="gif-input"  class="form-control" ><br>
+            <input id="add-gif" type="submit" value="Submit" class="btn btn-primary">
         </form>
         <div id="gif-result"></div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <script type="text/javascript">
-        var topics = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
-
-        function displayGifs() {
-            var name = $(this).attr("data-name");
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-                name + "&api_key=dc6zaTOxFJmzC&limit=10";
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).done(function(response) {
-                console.log(response);
-                var results = response.data;
-                for (var i = 0; i < results.length; i++) {
-                    var resultDiv = $("<div>");
-                    var p = $("<p>");
-                    p.text(results[i].rating);
-                    var resultImage = $("<img>");
-                    resultImage.attr("src", results[i].images.fixed_height_still.url);
-                    resultImage.attr("data-still", results[i].images.fixed_height_still.url);
-                    resultImage.attr("data-animate", results[i].images.fixed_height.url);
-                    resultImage.attr("data-state", "still");
-                    resultImage.addClass("play");
-                    resultDiv.append(p);
-                    resultDiv.append(resultImage);
-                    $("#gif-result").prepend(resultDiv);
-                }
-            });
-        }
-
-
-
-        function renderButtons() {
-            $("#gifs-view").empty();
-            for (var i = 0; i < topics.length; i++) {
-                var newButton = $("<button>");
-                newButton.addClass("gif");
-                newButton.attr("data-name", topics[i]);
-                newButton.text(topics[i]);
-                $("#gifs-view").append(newButton);
-            }
-        }
-
-        $("#add-gif").on("click", function(event) {
-            event.preventDefault();
-            var gif = $("#gif-input").val().trim();
-            topics.push(gif);
-            renderButtons();
-        });
-
-
-
-        function playGifs() {
-            var image = $(this);
-            var state = image.attr("data-state");
-
-            if (state === "still") {
-                var animate = image.attr("data-animate");
-                image.attr("src", animate);
-                image.attr("data-state", "animate");
-            } else {
-                var still = image.attr("data-still");
-                image.attr("src", still);
-                image.attr("data-state", "still");
-            }
-        }
-
-        renderButtons();
-
-        $(document).on("click", ".gif", displayGifs);
-
-        $(document).on("click", ".play", playGifs);
-    </script>
+    <!-- JQuery and Bootstrap JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- Custom JavaScript -->
+    <script type="text/javascript" src="assets/javascript/logic.js"></script>
 </body>
 
 </html>
