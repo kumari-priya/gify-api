@@ -28,6 +28,7 @@ $("#add-gif").on("click", function(event) {
 
 // Display gifs when the dynamically rendered button is clicked
 function displayGifs() {
+  $("#gif-result").empty();
     var name = $(this).attr("data-name");
     // API url
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
